@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+//#define START ios_base::sync_with_stdio(false); fin.tie(nullptr); fout.tie(nullptr);
+//#define FINISH fin.close(); fout.close(); return 0;
+
+//typedef unsigned ;
+
+ifstream fin1("file.in");
+ifstream fin2("file.in");
+ofstream fout("file.out");
+
+int main()
+{
+    int n, m, x, y;
+    
+    fin1 >> n >> m;
+    fin2 >> n >> m;
+    
+    for(int i = 1; i <= n; ++ i)
+        fin2 >> y;
+    
+    fin1 >> x;
+    fin2 >> y;
+    
+    int i, j;
+    for(i = 1, j = 1; i <= n and j <= m;){
+        if(x <= y){
+            ++ i;
+            fout << x << ' ';
+            fin1 >> x;
+        }
+        else{
+            ++ j;
+            fout << y << ' ';
+            fin2 >> y;
+        }
+    }
+    
+    for(; i <= n; ++ i){
+        fout << x << ' ';
+        fin1 >> x;
+    }
+    
+    for(; j <= m; ++ j){
+        fout << y << ' ';
+        fin2 >> y;
+    }
+    
+    return 0;
+}
